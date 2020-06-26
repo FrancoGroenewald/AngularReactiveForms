@@ -1,0 +1,16 @@
+<br>
+<form [formGroup]="combinationForm" (ngSubmit)="onSubmit()">
+    <label for="">Name: </label>
+    <input type="text" formControlName="name">
+    <label for="">Last: </label>
+    <input type="text" formControlName="last"><br>
+    <div formArrayName="hobbies">
+        <label for="">Hobbies:</label>
+        <div *ngFor="let hob of controlsHobbies; let i = index">
+            <input type="text" [formControlName]="i">&nbsp;
+            <button (click)="addHobbie()">Add</button>&nbsp;
+            <button (click)="removeHobbie(i)">Remove</button>
+        </div>
+    </div>
+    <button type="submit" [disabled]="!combinationForm.valid">Submit</button>
+</form>

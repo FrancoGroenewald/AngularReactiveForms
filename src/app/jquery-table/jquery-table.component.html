@@ -1,0 +1,34 @@
+<p>Libraries to install:</p>
+<ul>
+    <li>npm install jquery --save</li>
+    <li>npm install datatables.net --save</li>
+    <li>npm install datatables.net-dt --save</li>
+    <li>npm install @types/jquery --save-dev</li>
+    <li>npm install @types/datatables.net --save-dev</li>
+    <li>npm install datatables.net-bs4 --save</li>
+</ul>
+<div style="height: 80vh;">
+    <table id="example" class="table-sm table compact" width="100%">
+        <thead>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>IP Address</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let dat of data">
+                <td>{{dat.id}}</td>
+                <td>{{dat.first_name}}</td>
+                <td>{{dat.last_name}}</td>
+                <td>{{dat.email}}</td>
+                <td>{{dat.gender}}</td>
+                <td>{{dat.ip_address}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+

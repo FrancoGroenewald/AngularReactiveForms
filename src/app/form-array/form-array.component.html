@@ -1,0 +1,14 @@
+<form [formGroup]="emailForm">
+    <div formArrayName="emails">
+        <label for="">Email: </label>
+        <div *ngFor="let users of controlsEmails; let i = index">
+            <!-- <div *ngFor="let user of emailForm.get('emails')['controls']; let i = index"> -->
+            <input type="text" [formControlName]="i">&nbsp;
+            <button (click)="removeEmail(i)">Remove</button>
+        </div>
+    </div>
+    <br>
+    <button (click)="addEmail()" [disabled]="!emailForm.valid">Add</button>
+</form>
+
+<p>{{emailForm.value | json}}</p>

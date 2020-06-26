@@ -1,0 +1,16 @@
+<p>Imports to remember: </p>
+<ul>
+    <li><b>import FormsModule and ReactiveFormsModule  from '@angular/forms'</b>  into your app module</li>
+</ul>
+
+<form [formGroup]="newUserForm" (ngSubmit)="onSubmit()">
+    <label for="">Name:</label>&nbsp;
+    <input type="text" formControlName="name"><br>
+    <label for="">Last:</label>&nbsp;
+    <input type="text" formControlName="last"><br>
+    <label for="">Telephone:</label>&nbsp;
+    <input type="text" formControlName="telephone"><br>
+    <label for="">Password:</label>&nbsp;
+    <input type="password" formControlName="password"><br>
+    <button type="submit" [disabled]="newUserForm.invalid">Submit</button>
+</form>

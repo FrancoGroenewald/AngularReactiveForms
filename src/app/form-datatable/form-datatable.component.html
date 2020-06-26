@@ -1,0 +1,62 @@
+<form *ngIf="dataTableForm" [formGroup]="dataTableForm">
+    <table class="table table-striped" style="width: 100%;">
+        <thead>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>IP Address</th>
+        </thead>
+        <tbody formArrayName="tableRow">
+            <tr *ngFor="let user of controlsTableRow; let i = index" [formGroupName]="i">
+                <td><input type="text" formControlName="id">
+                    <span class="error-block" *ngIf="validationAt(i).get('id').invalid && (validationAt(i).get('id').dirty || !validationAt(i).get('id').touched)">
+                        <ul class="nav nav-pills pull-left">
+                            <li *ngIf="validationAt(i).get('id').errors['required']">*Field required</li>
+                            <li *ngIf="validationAt(i).get('id').errors['required']">*Length</li>
+                        </ul>
+                    </span>
+                </td>
+                <td><input type="text" formControlName="first_name">
+                    <span class="error-block" *ngIf="validationAt(i).get('first_name').invalid && (validationAt(i).get('first_name').dirty || !validationAt(i).get('first_name').touched)">
+                        <ul class="nav nav-pills pull-left">
+                            <li *ngIf="validationAt(i).get('first_name').errors['required']">*Field required</li>
+                        </ul>
+                    </span>
+                </td>
+                <td><input type="text" formControlName="last_name">
+                    <span class="error-block" *ngIf="validationAt(i).get('last_name').invalid && (validationAt(i).get('last_name').dirty || !validationAt(i).get('last_name').touched)">
+                        <ul class="nav nav-pills pull-left">
+                            <li *ngIf="validationAt(i).get('last_name').errors['required']">*Field required</li>
+                        </ul>
+                    </span>
+                </td>
+                <td><input type="text" formControlName="email">
+                    <span class="error-block" *ngIf="validationAt(i).get('email').invalid && (validationAt(i).get('email').dirty || !validationAt(i).get('email').touched)">
+                        <ul class="nav nav-pills pull-left">
+                            <li *ngIf="validationAt(i).get('email').errors['required']">*Field required</li>
+                            <li *ngIf="validationAt(i).get('email').errors['email']">*Email invalid</li>
+                        </ul>
+                    </span>
+                </td>
+                <td><input type="text" formControlName="gender">
+                    <span class="error-block" *ngIf="validationAt(i).get('gender').invalid && (validationAt(i).get('gender').dirty || !validationAt(i).get('gender').touched)">
+                        <ul class="nav nav-pills pull-left">
+                            <li *ngIf="validationAt(i).get('gender').errors['required']">*Field required</li>
+                            <li *ngIf="validationAt(i).get('gender').errors['wrongGender']">*Check Field</li>
+                        </ul>
+                    </span>
+                </td>
+                <td><input type="text" formControlName="ip_address">
+                    <span class="error-block" *ngIf="validationAt(i).get('ip_address').invalid && (validationAt(i).get('ip_address').dirty || !validationAt(i).get('ip_address').touched)">
+                        <ul class="nav nav-pills pull-left">
+                            <li *ngIf="validationAt(i).get('ip_address').errors['required']">*Field required</li>
+                            <li *ngIf="validationAt(i).get('ip_address').errors['IPIsForbidden']">*Check IP</li>
+                        </ul>
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>
